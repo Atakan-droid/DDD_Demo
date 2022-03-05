@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Order.Domain.Repository
+namespace Order.Domain.Abstract
 {
-    public interface IBuyerRepository : IRepository
+    public interface ISpecification<T>where T:IAggregateRoot
     {
-        object GetById();
+        bool IsSatisfiedBy(T o);
+       
     }
 }

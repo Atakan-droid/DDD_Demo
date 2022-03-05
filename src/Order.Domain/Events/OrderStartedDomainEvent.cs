@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Order.Domain.Events
 {
-    public class OrderStartedDomainEvent : INotification
+    public class OrderStartedDomainEvent : IDomainEvent
     {
         public string BuyerFirstName { get; private set; }
         public string BuyerLastName { get; private set; }

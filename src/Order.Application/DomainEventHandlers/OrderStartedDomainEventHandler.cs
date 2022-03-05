@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Order.Application.DomainEventHandlers
 {
-    public class OrderStartedDomainEventHandler : INotificationHandler<OrderStartedDomainEvent>
+    public class OrderStartedDomainEventHandler : INotificationHandler<OrderStartedDomainEvent>,IDomainEvent
     {
         private readonly IBuyerRepository buyerRepository;
         private readonly IOrderRepository orderRepository;
