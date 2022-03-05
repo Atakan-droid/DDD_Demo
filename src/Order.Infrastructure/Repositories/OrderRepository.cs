@@ -9,6 +9,11 @@ namespace Order.Infrastructure.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
+        public Task<Domain.AggregateModels.OrderModels.Order> GetById(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<int> SaveChangesAsync()
         {
             return Task.FromResult(1);

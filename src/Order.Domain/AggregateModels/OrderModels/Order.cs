@@ -15,9 +15,9 @@ namespace Order.Domain.AggregateModels.OrderModels
         public Address Address { get;private set; }
         public int BuyerId { get;private set; }
         public string OrderStatus { get;private set; }
-        public ICollection<OrderItem> OrderItems { get;private set; }
+        public ICollection<OrderItem> OrderItems { get;set; }
 
-        public Order(DateTime orderDate, string description, Address address, int buyerId, string orderStatus, ICollection<OrderItem> orderItems)
+        public Order(DateTime orderDate, string description, Address address, int buyerId, string orderStatus)
         {
             if (orderDate < DateTime.Now) throw new Exception("OrderDate must be greater than now");
             if (address.City == "") throw new Exception("City cannot be empty");
@@ -27,16 +27,10 @@ namespace Order.Domain.AggregateModels.OrderModels
             Address = address ?? throw new ArgumentNullException(nameof(address));
             BuyerId = buyerId;
             OrderStatus = orderStatus ?? throw new ArgumentNullException(nameof(orderStatus));
-            OrderItems = orderItems ?? throw new ArgumentNullException(nameof(orderItems));
 
-            AddDomainEvents(new OrderStartedDomainEvent("","",this));
+            AddDomainEvents(new OrderStartedDomainEvent("","",this,OrderItems));
         }
 
-        public void AddOrderItem(int quantity,decimal price,int productId)
-        {
-            OrderItem item = new(quantity, price, productId);
-
-            OrderItems.Add(item);
-        }
+      
     }
 }

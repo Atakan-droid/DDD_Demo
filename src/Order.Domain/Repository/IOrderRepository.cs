@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Order.Application.Repository
+namespace Order.Domain.Repository
 {
     public interface IOrderRepository:IRepository
     {
