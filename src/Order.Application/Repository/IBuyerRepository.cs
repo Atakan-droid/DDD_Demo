@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Order.Application.Repository
 {
-    public interface IBuyerRepository:IRepository
+    public interface IBuyerRepository : IRepository
     {
+        object GetById(int buyerId);
     }
 }

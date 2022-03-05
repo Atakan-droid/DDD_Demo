@@ -1,4 +1,5 @@
-﻿using Order.Domain.SeedWork;
+﻿using Order.Domain.AggregateModels.BuyerModels;
+using Order.Domain.SeedWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Order.Domain.Repository
 {
     public interface IBuyerRepository : IRepository
     {
-        object GetById();
+        Task<Buyer> GetById(int buyerId);
     }
 }
